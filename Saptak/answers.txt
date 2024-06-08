@@ -1,4 +1,45 @@
 #27 
 SELECT * FROM (SELECT *, ROW_NUMBER() OVER (ORDER BY WORKER_ID) AS row_num FROM Worker) AS numbered_rows WHERE row_num % 2 = 0;
+
 #29
 SELECT Worker.* FROM Worker INNER JOIN Title ON Worker.WORKER_ID = Title.WORKER_REF_ID;
+
+#28
+CREATE TABLE NewWorker AS SELECT * FROM Worker;
+
+#30
+SELECT Worker.*FROM Worker LEFT JOIN Title ON Worker.WORKER_ID = Title.WORKER_REF_ID WHERE Title.WORKER_REF_ID IS NULL;
+
+#31
+SELECT CURRENT_TIMESTAMP;
+
+#32
+SELECT *FROM Worker LIMIT 10;
+
+#33
+SELECT DISTINCT Salary FROM Worker ORDER BY Salary DESC LIMIT 4, 1;
+
+#34
+SELECT Salary FROM Worker WHERE Salary NOT IN (
+    SELECT DISTINCT Salary
+    FROM Worker
+    ORDER BY Salary DESC
+    LIMIT 4
+)
+ORDER BY Salary DESC LIMIT 1;
+
+#35
+SELECT FIRST_NAME, LAST_NAME, SALARY FROM Worker GROUP BY SALARY HAVING COUNT(*) > 1;
+
+#36
+SELECT MAX(Salary) AS SecondHighestSalary FROM Worker WHERE Salary < (
+    SELECT MAX(Salary)
+    FROM Worker
+);
+
+#37
+SELECT EmpID, FirstName, LastName FROM Employee WHERE EmpID = 123 UNION ALL SELECT EmpID, FirstName, LastName FROM Employee WHERE EmpID = 123;
+
+#38
+SELECT * FROM Table1 INNER JOIN Table2 ON Table1.common_column = Table2.common_column;
+
