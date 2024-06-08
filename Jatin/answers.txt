@@ -1,0 +1,37 @@
+Answers
+
+Question - 1
+select FIRST_NAME AS WORKER_NAME from Worker;
+
+Question - 2
+select UPPER(FIRST_NAME) from Worker;
+
+Question - 3
+select DISTINCT DEPARTMENT from Worker;
+
+Question - 4
+select LEFT(FIRST_NAME, 3) from Worker;
+
+Question - 5
+select INSTR(FIRST_NAME, 'a') from Worker WHERE FIRST_NAME = 'Amitabh';
+
+Question - 6
+select RTRIM(FIRST_NAME) AS FIRST_NAME from Worker;
+
+Question - 7
+select LTRIM(DEPARTMENT) AS DEPARTMENT from Worker;
+
+Question - 8
+select DISTINCT DEPARTMENT, LENGTH(DEPARTMENT) AS DEPARTMENT_LENGTH from Worker;
+
+Question - 9
+select REPLACE(FIRST_NAME, 'a', 'A') AS FIRST_NAME from Worker;
+
+Question - 10
+select CONCAT(FIRST_NAME, ' ', LAST_NAME) AS COMPLETE_NAME from Worker;
+
+Question - 11
+select * from Worker ORDER BY FIRST_NAME ASC;
+
+Question - 12
+select * from WorkerORDER BY FIRST_NAME ASC, DEPARTMENT DESC;
