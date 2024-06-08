@@ -1,2 +1,4 @@
 #27 
 SELECT * FROM (SELECT *, ROW_NUMBER() OVER (ORDER BY WORKER_ID) AS row_num FROM Worker) AS numbered_rows WHERE row_num % 2 = 0;
+#29
+SELECT Worker.* FROM Worker INNER JOIN Title ON Worker.WORKER_ID = Title.WORKER_REF_ID;
